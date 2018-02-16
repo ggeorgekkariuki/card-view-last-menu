@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <group android:menuCategory="container" android:enabled="true">
+        <item android:id="@+id/steven_item" android:title="Steven" />
+        <item android:id="@+id/connie_item" android:title="Connie"/>
+        <item android:id="@+id/amethyst_item" android:title="Amethyst"/>
+        <item android:id="@+id/lucy_item" android:title="Lucy"/>
+        <item android:id="@+id/logout" android:title="Logout" />
+    </group>
+
+
+
+
+</menu>
