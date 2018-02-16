@@ -4,15 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
-    <group android:menuCategory="container" android:enabled="true">
+    <group android:menuCategory="container" android:enabled="true"
+        android:checkableBehavior="single">
         <item android:id="@+id/steven_item" android:title="Steven" />
         <item android:id="@+id/connie_item" android:title="Connie"/>
         <item android:id="@+id/amethyst_item" android:title="Amethyst"/>
         <item android:id="@+id/lucy_item" android:title="Lucy"/>
         <item android:id="@+id/logout" android:title="Logout" />
     </group>
-
-
-
 
 </menu>
