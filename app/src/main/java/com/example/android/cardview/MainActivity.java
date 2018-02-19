@@ -16,20 +16,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import static com.example.android.cardview.R.id.nav_menu;
+import static com.example.android.cardview.R.id.nav_viewer_menu;
 
 public class MainActivity extends AppCompatActivity implements CardFragment.OnFragmentInteractionListener {
     private NavigationView navigationView;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
-    private NavigationMenu mNavigationMenu;
-    View.OnClickListener MyOnClickListener;
-    public RecyclerView MyRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,36 +37,42 @@ public class MainActivity extends AppCompatActivity implements CardFragment.OnFr
         android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
         final Fragment[] fragment = {fragmentManager.findFragmentById(R.id.fragmentContainer)};
 
-        navigationView = findViewById(nav_menu);
+        navigationView = findViewById(R.id.nav_viewer_menu);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                item.setChecked(true);
-                Fragment fragment1 = null;
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+
                 int id = item.getItemId();
-                switch (id){
-                    case R.id.steven_item:
+                item.setChecked(true);
+
+                Log.d("Original Lucy id ", String.valueOf(R.id.lucy_item));
+
+                if(id == R.id.steven_item){
                          Toast.makeText(getApplicationContext(),"You clicked on "+ id,
                                 Toast.LENGTH_SHORT).show();
-                         return true;
-
-                    case R.id.amethyst_item:
+                        Log.d(" Steven item id  ", String.valueOf(id));
+                        Log.d("Original Steven id ", String.valueOf(R.id.lucy_item));
+                } else if(id == R.id.amethyst_item){
                         Toast.makeText(getApplicationContext(),"You clicked on "+ id,
                                 Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.connie_item:
-                        Toast.makeText(getApplicationContext(),"You clicked on "+ id,
+                        Log.d(" Amethyst item id  ", String.valueOf(id));
+                        Log.d("Original Amethyst id ", String.valueOf(R.id.lucy_item));
+                } else if (id == R.id.connie_item){
+                    Toast.makeText(getApplicationContext(),"You clicked on "+ id,
                                 Toast.LENGTH_SHORT).show();
-                        return true;
-                    case R.id.lucy_item:
-                        Toast.makeText(getApplicationContext(),"You clicked on "+ id,
+                        Log.d(" Connie item id  ", String.valueOf(id));
+                        Log.d("Original Connie id ", String.valueOf(R.id.lucy_item));
+                } else if (id == R.id.lucy_item){
+                    Toast.makeText(getApplicationContext(),"You clicked on "+ id,
                                 Toast.LENGTH_SHORT).show();
-                        return true;
+                        Log.d(" Lucy item id  ", String.valueOf(id));
+                        Log.d("Original Lucy id ", String.valueOf(R.id.lucy_item));
                 }
+
                 return true;
             }
         });
+
 
         if (fragment[0] == null){
             fragment[0] = new CardFragment();
@@ -82,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements CardFragment.OnFr
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
     }
 
 
@@ -94,10 +100,44 @@ public class MainActivity extends AppCompatActivity implements CardFragment.OnFr
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (mToggle.onOptionsItemSelected(item)){
+            item.setChecked(true);
+            int id = item.getItemId();
+            switch (item.getItemId()){
+
+                case R.id.steven_item:
+                    Toast.makeText(getApplicationContext(),"You clicked on "+ id,
+                            Toast.LENGTH_SHORT).show();
+                    Log.d(" Steven item id  ", String.valueOf(id));
+                    Log.d("Original Steven id ", String.valueOf(R.id.lucy_item));
+                    break;
+
+                case R.id.amethyst_item:
+                    Toast.makeText(getApplicationContext(),"You clicked on "+ id,
+                            Toast.LENGTH_SHORT).show();
+                    Log.d(" Steven item id  ", String.valueOf(id));
+                    Log.d("Original Steven id ", String.valueOf(R.id.lucy_item));
+                    break;
+                case R.id.connie_item:
+                    Toast.makeText(getApplicationContext(),"You clicked on "+ id,
+                            Toast.LENGTH_SHORT).show();
+                    Log.d(" Steven item id  ", String.valueOf(id));
+                    Log.d("Original Steven id ", String.valueOf(R.id.lucy_item));
+                    break;
+                case R.id.lucy_item:
+                    Toast.makeText(getApplicationContext(),"You clicked on "+ id,
+                            Toast.LENGTH_SHORT).show();
+                    Log.d(" Steven item id  ", String.valueOf(id));
+                    Log.d("Original Steven id ", String.valueOf(R.id.lucy_item));
+                    break;
+            }
+
             return true;
         }
+
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
 }
